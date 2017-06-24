@@ -8,7 +8,10 @@
 <body>
     <div id='wrapper'>
         <h3> welcome {{ request.session.first_name }}... </h3>
-        <p>You are logged in... But that's all this app does.</p>    
+        <p> Here are options you can use with this application </p>
+        <form action="/bikes" method="GET">
+            <button>Bike Reviewer</button>
+        </form>
         {% comment %}<p>Welcome {{ request.session['first_name'] }}{{ request.session['last_name'] }}, (Userid: {{ userid }}). </p>
         <p>Logged in: {{ request.session['logged_in'] }}{% endcomment %}
         <form action="/logout" method="GET">

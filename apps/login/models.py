@@ -41,7 +41,7 @@ class UserManager(models.Manager):
     def loginvalidate(self, postdata):
         results = {'status':True, 'errors':[], 'user':None}
         user = User.objects.filter(email=postdata['email'])
-        try:
+        try:                #need this try loop if the db is empty.
             user[0]
         except IndexError:
             results['status'] = False
