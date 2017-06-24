@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Add Bikes</title>
+        <meta description='Add a Bike Page for Bike Reviewer Project'>
+        <meta charset='utf-8'/>
+    </head>
+    <body>
+        <div id='wrapper'>
+         <h3> welcome {{ request.session.first_name }}... </h3>
+        <h3>Add your Bike and Review it here.</h3>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/bikes/insertreview" method="POST">
+            {% csrf_token %}
+            <p><label for="modelyear">Bike Model Year:</label>
+            <input type="text" name="modelyear"></p>
+            <p><label for="model">Bike Model:</label>
+            <input type="text" name="model"></p>
+            <p><label for="make">Bike Make:</label>
+            <select id="makeselector" name="make">
+                <option value="Kawasaki">Kawasaki</option>
+                <option value="Yamaha">Yamaha</option>
+                <option value="Ducati">Ducati</option>
+                <option value="Buell">Buell</option>
+                <option value="Harley Davidson">Harley Davidson</option>
+                <option value="KTM">KTM</option>
+                <option value="BMW">BMW</option>
+                <option value="Triumph">Triumph</option>
+                <option value="create">Create new...</option>
+            </select></p>
+            <p><label for="newmake">or create a new one:</label>
+            <input type="text" name="newmake" ></p>
+            <p><label for="review">Review:</label>
+            <textarea name="review" rows="5" cols="50"></textarea></p>
+            <p>Rating:
+            <select id="rating" name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select></p>
+            <input type=submit value="Add Your Review">
+        </form>
+        <br>
+        <form action="/bikes" method="GET">
+            <button><< Back</button>
+        </form>
+        <form action="/logout" method="GET">
+            <button>Logout</button>
+        </form>
+    </div>
+</body>
+</html>

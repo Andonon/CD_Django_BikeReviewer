@@ -16,13 +16,13 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        {% comment %}<p>Welcome {{ request.session['first_name'] }}{{ request.session['last_name'] }}, (Userid: {{ userid }}). </p>
-        <p>Logged in: {{ request.session['logged_in'] }}{% endcomment %}
-        <form action="/logout" method="GET">
-            <button>Logout</button>
-        </form>
+        <h4><a href="/bikes/newreview">Add a Bike and Review</a></h4>
+        <h4>Recent Bike Reviews:</h4>
         <form action="/" method="GET">
             <button>Login Page</button>
+        </form>
+        <form action="/logout" method="GET">
+            <button>Logout</button>
         </form>
     </div>
 </body>
